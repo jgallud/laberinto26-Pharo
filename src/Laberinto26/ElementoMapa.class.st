@@ -1,5 +1,5 @@
 "
-Interfaz común a los elementos del mapa
+ElementoMapa es la interfaz común de los elementos del laberinto
 "
 Class {
 	#name : 'ElementoMapa',
