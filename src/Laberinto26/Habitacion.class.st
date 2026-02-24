@@ -1,10 +1,11 @@
 "
-Es un tipo de contenedor
+Es un contenedor (es elemento mapa) 
 "
 Class {
 	#name : 'Habitacion',
 	#superclass : 'Contenedor',
 	#instVars : [
+		'num',
 		'norte',
 		'sur',
 		'este',
@@ -13,6 +14,11 @@ Class {
 	#category : 'Laberinto26',
 	#package : 'Laberinto26'
 }
+
+{ #category : 'as yet unclassified' }
+Habitacion >> entrar [
+	Transcript show:'Estas en la habitación ';nextPutAll: self num printString;cr.
+]
 
 { #category : 'accessing' }
 Habitacion >> este [
@@ -36,6 +42,18 @@ Habitacion >> norte [
 Habitacion >> norte: anObject [
 
 	norte := anObject
+]
+
+{ #category : 'accessing' }
+Habitacion >> num [
+
+	^ num
+]
+
+{ #category : 'accessing' }
+Habitacion >> num: anObject [
+
+	num := anObject
 ]
 
 { #category : 'accessing' }

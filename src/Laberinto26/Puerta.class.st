@@ -1,9 +1,9 @@
 "
-Es un elemento del mapa que une dos habitaciones. Puede estar abierta o cerrada.
+Puerta es un elemento del mapa que une dos habitaciones y tiene abierta 
 "
 Class {
 	#name : 'Puerta',
-	#superclass : 'ElementoMapa',
+	#superclass : 'Hoja',
 	#instVars : [
 		'abierta',
 		'lado1',
@@ -23,6 +23,23 @@ Puerta >> abierta [
 Puerta >> abierta: anObject [
 
 	abierta := anObject
+]
+
+{ #category : 'accessing' }
+Puerta >> abrir [
+	self abierta:true.
+]
+
+{ #category : 'accessing' }
+Puerta >> cerrar [
+	self abierta:false.
+]
+
+{ #category : 'as yet unclassified' }
+Puerta >> entrar [
+ self abierta ifTrue:[Transcript show:'La puerta está abierta';cr. "pasar al otro lado"
+	]
+ ifFalse:[Transcript show:'La puerta está cerrada';cr.]
 ]
 
 { #category : 'initialization' }

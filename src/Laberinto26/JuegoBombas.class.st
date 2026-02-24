@@ -1,5 +1,5 @@
 "
-Es una subclase que crea laberintos con paredes-bomba
+JuegoBombas ilustra el patrón FactoryMethod para crear laberintos con paredes-bombas
 "
 Class {
 	#name : 'JuegoBombas',
