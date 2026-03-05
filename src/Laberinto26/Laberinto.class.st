@@ -13,21 +13,15 @@ Laberinto >> agregarHabitacion:unaHab [
 	self agregarHijo: unaHab
 ]
 
-{ #category : 'accessing' }
-Laberinto >> habitaciones [
+{ #category : 'as yet unclassified' }
+Laberinto >> entrar:alguien [
+	| hab |
+	Transcript show:alguien printString ; nextPutAll: ' ha entrado en el laberinto';cr.	
+	"elegir una habitacion al azar..."
+	"entrar por la hab1"
+	hab:=self obtenerHabitacion: 1.
+	hab entrar:alguien.
 
-	^ habitaciones
-]
-
-{ #category : 'accessing' }
-Laberinto >> habitaciones: anObject [
-
-	habitaciones := anObject
-]
-
-{ #category : 'accessing' }
-Laberinto >> initialize [ 
-	habitaciones:=OrderedCollection new.
 ]
 
 { #category : 'accessing' }
@@ -35,4 +29,12 @@ Laberinto >> obtenerHabitacion:unNum [
 	"^self hijos at:unNum"
 	
 	^self hijos detect:[:each | each num = unNum] ifNone:[nil]
+]
+
+{ #category : 'as yet unclassified' }
+Laberinto >> recorrer:unBloque [
+
+	Transcript show:'Recorriendo el laberinto';cr.
+	
+	self hijos do:[:each | each recorrer:unBloque]
 ]

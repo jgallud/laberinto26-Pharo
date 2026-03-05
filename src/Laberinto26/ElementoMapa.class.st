@@ -17,3 +17,18 @@ ElementoMapa >> entrar [
 ElementoMapa >> entrar:alguien [
 	self subclassResponsibility 
 ]
+
+{ #category : 'consulta' }
+ElementoMapa >> esBomba [
+	^false
+]
+
+{ #category : 'consulta' }
+ElementoMapa >> esPuerta [
+	^false
+]
+
+{ #category : 'iterator' }
+ElementoMapa >> recorrer:unBloque [
+	self subclassResponsibility 
+]

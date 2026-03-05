@@ -7,7 +7,8 @@ Class {
 	#instVars : [
 		'vidas',
 		'poder',
-		'modo'
+		'modo',
+		'posicion'
 	],
 	#category : 'Laberinto26',
 	#package : 'Laberinto26'
@@ -40,6 +41,18 @@ Bicho >> poder [
 Bicho >> poder: anObject [
 
 	poder := anObject
+]
+
+{ #category : 'accessing' }
+Bicho >> posicion [
+
+	^ posicion
+]
+
+{ #category : 'accessing' }
+Bicho >> posicion: anObject [
+
+	posicion := anObject
 ]
 
 { #category : 'accessing' }
