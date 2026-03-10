@@ -37,13 +37,6 @@ Puerta >> cerrar [
 ]
 
 { #category : 'as yet unclassified' }
-Puerta >> entrar [
- self abierta ifTrue:[Transcript show:'La puerta está abierta';cr. "pasar al otro lado"
-	]
- ifFalse:[Transcript show:'La puerta está cerrada';cr.]
-]
-
-{ #category : 'as yet unclassified' }
 Puerta >> entrar:alguien [
 	self abierta ifTrue:[ 
 		alguien posicion = self lado1 ifTrue:[ self lado2 entrar:alguien ] ifFalse:[ self lado1 entrar:alguien]

@@ -43,7 +43,7 @@ Contenedor >> eliminarOrientacion:unaOr [
 { #category : 'as yet unclassified' }
 Contenedor >> entrar:alguien [
 
-	Transcript show:alguien printString ; nextPutAll: ' ha está en '; nextPutAll: self printString;cr.
+	Transcript show:alguien printString ; nextPutAll: ' está en '; nextPutAll: self printString;cr.
 	alguien posicion:self
 ]
 
@@ -130,6 +130,17 @@ Contenedor >> ponerEn:unaOr elemento:unEM [
 
 	"se podría un switch-case"
 	unaOr ponerElemento:unEM enContenedor:self
+]
+
+{ #category : 'iterator' }
+Contenedor >> recorrer:unBloque [
+
+	Transcript show:self printString;cr.
+	unBloque value:self.
+	self hijos do:[:each | each recorrer:unBloque].
+	
+	"me falta recorrer las orientaciones"
+	self orientaciones do:[:each | each recorrer:unBloque enContenedor:self].
 ]
 
 { #category : 'accessing' }

@@ -17,7 +17,7 @@ Juego >> abrirPuertas [
 	self laberinto recorrer:[:each | each esPuerta ifTrue:[each abrir]].
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'acciones' }
 Juego >> activarBombas [
  self laberinto recorrer:[:each | each esBomba ifTrue:[each activar]].
 ]
@@ -46,7 +46,7 @@ Juego >> bichos: anObject [
 	bichos := anObject
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'acciones' }
 Juego >> desactivarBombas [
  self laberinto recorrer:[:each | each esBomba ifTrue:[each desactivar]].
 ]

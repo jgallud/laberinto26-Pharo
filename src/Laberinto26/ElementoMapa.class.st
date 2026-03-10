@@ -9,11 +9,6 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-ElementoMapa >> entrar [
-	self subclassResponsibility 
-]
-
-{ #category : 'as yet unclassified' }
 ElementoMapa >> entrar:alguien [
 	self subclassResponsibility 
 ]
