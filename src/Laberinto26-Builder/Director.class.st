@@ -37,6 +37,12 @@ Director >> dict: anObject [
 ]
 
 { #category : 'as yet unclassified' }
+Director >> fabricarBichos [
+	(self dict at:'bichos' ifAbsent:[^nil]) do:[:each |
+		self builder fabricarBichoModo:(each at:'modo') posicion:(each at:'posicion')]. "fabricarBichoModoPosicion(strModo,unNum)"
+]
+
+{ #category : 'as yet unclassified' }
 Director >> fabricarJuego [
 	self builder fabricarJuego.
 ]
@@ -94,4 +100,5 @@ Director >> procesar:unArchivo [
 	self iniBuilder.
 	self fabricarLaberinto.
 	self fabricarJuego.
+	self fabricarBichos.
 ]

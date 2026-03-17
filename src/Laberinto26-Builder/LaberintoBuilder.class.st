@@ -19,6 +19,11 @@ LaberintoBuilder >> asignarOrientaciones:unCont [
 ]
 
 { #category : 'factory method' }
+LaberintoBuilder >> fabricarAgresivo [
+	^Agresivo new 
+]
+
+{ #category : 'factory method' }
 LaberintoBuilder >> fabricarArmario:unNum en:unCont [
 
 	|arm pt| 
@@ -42,6 +47,22 @@ LaberintoBuilder >> fabricarArmario:unNum en:unCont [
 	unCont agregarHijo: arm.
 	
 	^arm	
+]
+
+{ #category : 'factory method' }
+LaberintoBuilder >> fabricarBichoModo:strModo posicion:unNum [
+
+	|bicho modo hab|
+	
+	modo:=self perform:('fabricar',strModo) asSymbol.
+	hab:=self juego obtenerHabitacion: unNum.
+	
+	bicho:=Bicho new modo:modo.
+	hab entrar:bicho.
+	
+	"modo condicionesEspeciales:bicho."
+	
+	self juego agregarBicho:bicho.
 ]
 
 { #category : 'factory method' }
@@ -98,6 +119,11 @@ LaberintoBuilder >> fabricarOeste [
 { #category : 'factory method' }
 LaberintoBuilder >> fabricarPared [
 	^Pared new
+]
+
+{ #category : 'factory method' }
+LaberintoBuilder >> fabricarPerezoso [
+	^Perezoso new 
 ]
 
 { #category : 'factory method' }
