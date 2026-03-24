@@ -9,7 +9,7 @@ Class {
 	#tag : 'Solucion'
 }
 
-{ #category : 'acciones' }
+{ #category : 'as yet unclassified' }
 ElementoMapa >> entrar:alguien [
 	self subclassResponsibility 
 ]

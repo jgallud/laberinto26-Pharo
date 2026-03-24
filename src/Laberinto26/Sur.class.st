@@ -26,7 +26,7 @@ Sur class >> new [
 { #category : 'caminar' }
 Sur >> caminar:unBicho [
  | em |
-	em:=unBicho posicion sur. 
+	em:=unBicho posicion forma sur. 
 	
 	em entrar:unBicho.
 ]

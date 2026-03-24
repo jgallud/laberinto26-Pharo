@@ -17,6 +17,11 @@ Bicho >> actua [
 	self modo actua:self
 ]
 
+{ #category : 'as yet unclassified' }
+Bicho >> buscarEnemigo [ 
+	^self juego buscarPersonaje: self
+]
+
 { #category : 'consulta' }
 Bicho >> esAgresivo [
  ^self modo esAgresivo
@@ -37,6 +42,16 @@ Bicho >> modo [
 Bicho >> modo: anObject [
 
 	modo := anObject
+]
+
+{ #category : 'as yet unclassified' }
+Bicho >> muero [
+	self juego muereBicho:self.
+]
+
+{ #category : 'consulta' }
+Bicho >> obtenerOrientacionAleatoria [ 
+ ^self posicion obtenerOrientacionAleatoria 
 ]
 
 { #category : 'printing' }

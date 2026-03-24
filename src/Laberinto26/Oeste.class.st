@@ -26,7 +26,7 @@ Oeste class >> new [
 { #category : 'caminar' }
 Oeste >> caminar:unBicho [
  | em |
-	em:=unBicho posicion oeste. 
+	em:=unBicho posicion forma oeste. 
 	
 	em entrar:unBicho.
 ]

@@ -12,6 +12,26 @@ Class {
 	#tag : 'Solucion'
 }
 
+{ #category : 'as yet unclassified' }
+Personaje >> buscarEnemigo [
+	"pedir a juego que me devuelva un bicho en mi posicion"
+]
+
+{ #category : 'caminar' }
+Personaje >> irA:unaOr [
+	unaOr caminar:self.
+]
+
+{ #category : 'caminar' }
+Personaje >> irAlNorte [
+	self posicion irAlNorte:self.
+]
+
+{ #category : 'as yet unclassified' }
+Personaje >> muero [
+	self juego muerePersonaje 
+]
+
 { #category : 'accessing' }
 Personaje >> nombre [
 
@@ -22,4 +42,9 @@ Personaje >> nombre [
 Personaje >> nombre: anObject [
 
 	nombre := anObject
+]
+
+{ #category : 'printing' }
+Personaje >> printOn:aStream [
+	aStream nextPutAll:self nombre
 ]

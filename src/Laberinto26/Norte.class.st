@@ -26,7 +26,7 @@ Norte class >> new [
 { #category : 'caminar' }
 Norte >> caminar:unBicho [
  | em |
-	em:=unBicho posicion norte. 
+	em:=unBicho posicion forma norte. 
 	
 	em entrar:unBicho.
 ]

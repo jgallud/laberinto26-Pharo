@@ -35,6 +35,7 @@ Juego >> agregarBicho:unBicho [
 Juego >> agregarPersonaje:unaCadena [
 	|hab1|
 	self person:(Personaje new nombre:unaCadena).
+	self person juego:self.
 	hab1:=self obtenerHabitacion: 1.
 	hab1 entrar:self person.
 ]
@@ -55,6 +56,12 @@ Juego >> bichos [
 Juego >> bichos: anObject [
 
 	bichos := anObject
+]
+
+{ #category : 'ataques' }
+Juego >> buscarPersonaje:unBicho [
+	
+	(unBicho posicion = self person posicion) ifTrue:[^self person] ifFalse:[^nil]
 ]
 
 { #category : 'acciones' }
@@ -295,8 +302,19 @@ Juego >> lanzarBicho:unBicho [
 
 { #category : 'gestion-bichos' }
 Juego >> lanzarTodosLosBichos [
-	Transcript show:'Los bichos despiertas';cr.
+	Transcript show:'Los bichos despiertan';cr.
 	self bichos do:[:each | self lanzarBicho:each]
+]
+
+{ #category : 'ataques' }
+Juego >> muereBicho:unBicho [
+	self terminarBicho: unBicho
+]
+
+{ #category : 'ataques' }
+Juego >> muerePersonaje [
+	Transcript show:'Manmatao. Fin del juego' ;cr.
+	self terminarTodosLosBichos.
 ]
 
 { #category : 'accessing' }
@@ -326,6 +344,6 @@ Juego >> terminarBicho:unBicho [
 
 { #category : 'gestion-bichos' }
 Juego >> terminarTodosLosBichos [
-	Transcript show:'Los bichos despiertas';cr.
+	Transcript show:'Los bichos terminan';cr.
 	self bichos do:[:each | self terminarBicho:each]
 ]

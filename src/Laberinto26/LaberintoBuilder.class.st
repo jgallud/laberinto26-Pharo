@@ -8,15 +8,15 @@ Class {
 		'laberinto',
 		'juego'
 	],
-	#category : 'Laberinto26-builder',
+	#category : 'Laberinto26-Builder',
 	#package : 'Laberinto26',
-	#tag : 'builder'
+	#tag : 'Builder'
 }
 
 { #category : 'accessing' }
-LaberintoBuilder >> asignarOrientaciones:unCont [
+LaberintoBuilder >> asignarOrientaciones:unaForma [
 
-	unCont orientaciones add:(self fabricarNorte); add:(self fabricarEste); add:(self fabricarSur); add:(self fabricarOeste)
+	unaForma orientaciones add:(self fabricarNorte); add:(self fabricarEste); add:(self fabricarSur); add:(self fabricarOeste)
 ]
 
 { #category : 'factory method' }
@@ -64,6 +64,7 @@ LaberintoBuilder >> fabricarBichoModo:strModo posicion:unNum [
 	"modo condicionesEspeciales:bicho."
 	
 	self juego agregarBicho:bicho.
+	bicho juego:self juego.
 ]
 
 { #category : 'factory method' }
@@ -79,17 +80,25 @@ LaberintoBuilder >> fabricarEste [
 	^Este default
 ]
 
+{ #category : 'as yet unclassified' }
+LaberintoBuilder >> fabricarForma [
+
+	|forma|
+	forma:=Cuadrado new.
+	self asignarOrientaciones: forma.
+	^forma
+	
+]
+
 { #category : 'factory method' }
 LaberintoBuilder >> fabricarHabitacion:unNum [
 	|hab|
 	hab:=Habitacion new.
 	hab num:unNum.
-	self asignarOrientaciones: hab.
-	"hab forma:self fabricarForma.
-	hab forma num:unNum."
-	"hab agregarOrientacion: self fabricarNorte; agregarOrientacion:self fabricarSur; agregarOrientacion:self fabricarEste; agregarOrientacion:self fabricarOeste."
-	
-	hab orientaciones do:[:each | hab ponerEn:each elemento:self fabricarPared].
+	hab forma:self fabricarForma.
+	hab forma num:unNum.
+		
+	hab forma orientaciones do:[:each | hab ponerEn:each elemento:self fabricarPared].
 	
 	self laberinto agregarHabitacion: hab.
 	
@@ -105,6 +114,16 @@ LaberintoBuilder >> fabricarJuego [
 { #category : 'factory method' }
 LaberintoBuilder >> fabricarLaberinto [
 	self laberinto:Laberinto new.
+]
+
+{ #category : 'factory method' }
+LaberintoBuilder >> fabricarNoreste [
+	^Noreste default
+]
+
+{ #category : 'factory method' }
+LaberintoBuilder >> fabricarNoroeste [
+	^Noroeste default
 ]
 
 { #category : 'factory method' }
@@ -149,6 +168,16 @@ LaberintoBuilder >> fabricarPuertaLado1:num1 or1:unaOr Lado2:num2 or2:otraOr [
 { #category : 'factory method' }
 LaberintoBuilder >> fabricarSur [
 	^Sur default
+]
+
+{ #category : 'factory method' }
+LaberintoBuilder >> fabricarSureste [
+	^Sureste default
+]
+
+{ #category : 'factory method' }
+LaberintoBuilder >> fabricarSuroeste [
+	^Suroeste default
 ]
 
 { #category : 'accessing' }

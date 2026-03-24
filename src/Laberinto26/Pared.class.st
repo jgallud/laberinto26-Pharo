@@ -16,6 +16,6 @@ Pared >> entrar [
 
 { #category : 'as yet unclassified' }
 Pared >> entrar:alguien [
-		Transcript show:alguien printString ; nextPutAll: ', se ha chocado con una pared';cr.
+		Transcript show:alguien printString ; nextPutAll: ' se ha chocado con una pared';cr.
 	
 ]

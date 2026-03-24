@@ -9,22 +9,27 @@ Class {
 	#tag : 'Solucion'
 }
 
-{ #category : 'acciones' }
+{ #category : 'as yet unclassified' }
 Modo >> actua:unBicho [
 
 	self camina:unBicho. 
-	"self ataca"
+	self ataca:unBicho.
 	self duerme:unBicho
 ]
 
-{ #category : 'acciones' }
+{ #category : 'as yet unclassified' }
+Modo >> ataca:unBicho [
+	unBicho atacar.
+]
+
+{ #category : 'as yet unclassified' }
 Modo >> camina:unBicho [
 	| or |
-	or:=unBicho posicion obtenerOrientacionAleatoria.
+	or:=unBicho obtenerOrientacionAleatoria. "or:=unBicho posicion forma obtenerOrientacionAleatoria"
 	or caminar:unBicho.
 ]
 
-{ #category : 'acciones' }
+{ #category : 'as yet unclassified' }
 Modo >> duerme:unBicho [
 	self subclassResponsibility 
 ]

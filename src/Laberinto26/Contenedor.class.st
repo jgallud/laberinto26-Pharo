@@ -6,12 +6,8 @@ Class {
 	#superclass : 'ElementoMapa',
 	#instVars : [
 		'hijos',
-		'orientaciones',
-		'este',
-		'norte',
-		'num',
-		'oeste',
-		'sur'
+		'forma',
+		'num'
 	],
 	#category : 'Laberinto26-Solucion',
 	#package : 'Laberinto26',
@@ -26,7 +22,8 @@ Contenedor >> agregarHijo:unEM [
 
 { #category : 'gestion-orientaciones' }
 Contenedor >> agregarOrientacion:unaOr [
-	self orientaciones add:unaOr
+	"self orientaciones add:unaOr"
+	self forma agregarOrientacion:unaOr
 ]
 
 { #category : 'gestion-hijos' }
@@ -38,10 +35,11 @@ Contenedor >> eliminarHijo:unEM [
 { #category : 'gestion-orientaciones' }
 Contenedor >> eliminarOrientacion:unaOr [
 
-	self orientaciones remove:unaOr ifAbsent:[ ^nil ]
+	"self orientaciones remove:unaOr ifAbsent:[ ^nil ]"
+	self forma eliminarOrientacion: unaOr
 ]
 
-{ #category : 'acciones' }
+{ #category : 'as yet unclassified' }
 Contenedor >> entrar:alguien [
 
 	Transcript show:alguien printString ; nextPutAll: ' está en '; nextPutAll: self printString;cr.
@@ -51,15 +49,15 @@ Contenedor >> entrar:alguien [
 ]
 
 { #category : 'accessing' }
-Contenedor >> este [
+Contenedor >> forma [
 
-	^ este
+	^ forma
 ]
 
 { #category : 'accessing' }
-Contenedor >> este: anObject [
+Contenedor >> forma: anObject [
 
-	este := anObject
+	forma := anObject
 ]
 
 { #category : 'accessing' }
@@ -77,19 +75,12 @@ Contenedor >> hijos: anObject [
 { #category : 'initialization' }
 Contenedor >> initialize [
 	hijos:=OrderedCollection new.
-	orientaciones:=OrderedCollection new.
+	"orientaciones:=OrderedCollection new."
 ]
 
-{ #category : 'accessing' }
-Contenedor >> norte [
-
-	^ norte
-]
-
-{ #category : 'accessing' }
-Contenedor >> norte: anObject [
-
-	norte := anObject
+{ #category : 'as yet unclassified' }
+Contenedor >> irAlNorte:alguien [
+	self forma irAlNorte:alguien
 ]
 
 { #category : 'accessing' }
@@ -106,39 +97,17 @@ Contenedor >> num: anObject [
 
 { #category : 'gestion-orientaciones' }
 Contenedor >> obtenerOrientacionAleatoria [
-	| ind |
+	"| ind |
 	ind:=(1 to:self orientaciones size) atRandom.
-	^self orientaciones at:ind.
-]
-
-{ #category : 'accessing' }
-Contenedor >> oeste [
-
-	^ oeste
-]
-
-{ #category : 'accessing' }
-Contenedor >> oeste: anObject [
-
-	oeste := anObject
-]
-
-{ #category : 'accessing' }
-Contenedor >> orientaciones [
-
-	^ orientaciones
-]
-
-{ #category : 'accessing' }
-Contenedor >> orientaciones: anObject [
-
-	orientaciones := anObject
+	^self orientaciones at:ind."
+	^self forma obtenerOrientacionAleatoria 
 ]
 
 { #category : 'accessing' }
 Contenedor >> ponerEn:unaOr elemento:unEM [
 
-	unaOr ponerElemento:unEM enContenedor:self
+	"unaOr ponerElemento:unEM enContenedor:self"
+	self forma ponerEn:unaOr elemento:unEM
 ]
 
 { #category : 'iterator' }
@@ -149,17 +118,5 @@ Contenedor >> recorrer:unBloque [
 	self hijos do:[:each | each recorrer:unBloque].
 	
 	"me falta recorrer las orientaciones"
-	self orientaciones do:[:each | each recorrer:unBloque enContenedor:self].
-]
-
-{ #category : 'accessing' }
-Contenedor >> sur [
-
-	^ sur
-]
-
-{ #category : 'accessing' }
-Contenedor >> sur: anObject [
-
-	sur := anObject
+	self forma orientaciones do:[:each | each recorrer:unBloque enContenedor:self forma].
 ]

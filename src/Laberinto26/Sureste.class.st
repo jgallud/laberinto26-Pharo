@@ -1,8 +1,5 @@
-"
-Este representa la orientación este
-"
 Class {
-	#name : 'Este',
+	#name : 'Sureste',
 	#superclass : 'Orientacion',
 	#classVars : [
 		'UnicaInstancia'
@@ -12,32 +9,32 @@ Class {
 	#tag : 'Solucion'
 }
 
-{ #category : 'instance creation' }
-Este class >> default [
+{ #category : 'accessing' }
+Sureste class >> default [
  UnicaInstancia isNil ifTrue:[UnicaInstancia:=super new].
  ^UnicaInstancia
 ]
 
 { #category : 'instance creation' }
-Este class >> new [
+Sureste class >> new [
 	self error:'no se puede crear objeto'.
 ]
 
 { #category : 'caminar' }
-Este >> caminar:unBicho [
+Sureste >> caminar:unBicho [
  | em |
-	em:=unBicho posicion forma este. "que hay en el este"
+	em:=unBicho posicion forma se. "que hay en el este"
 	
 	em entrar:unBicho.
 ]
 
 { #category : 'as yet unclassified' }
-Este >> ponerElemento:unEM enContenedor:unCont [
-	unCont este:unEM
+Sureste >> ponerElemento:unEM enContenedor:unCont [
+	unCont se:unEM
 ]
 
 { #category : 'as yet unclassified' }
-Este >> recorrer:unBloque enContenedor:unCont [
+Sureste >> recorrer:unBloque enContenedor:unCont [
 
-	unCont este recorrer:unBloque
+	unCont se recorrer:unBloque
 ]

@@ -14,13 +14,13 @@ Orientacion >> caminar:unBicho [
 	self subclassResponsibility 
 ]
 
-{ #category : 'acciones' }
+{ #category : 'as yet unclassified' }
 Orientacion >> ponerElemento:unEM enContenedor:unCont [
 
 	self subclassResponsibility 
 ]
 
-{ #category : 'acciones' }
+{ #category : 'as yet unclassified' }
 Orientacion >> recorrer:unBloque enContenedor:unCont [
 
 	self subclassResponsibility 

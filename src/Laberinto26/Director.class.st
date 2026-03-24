@@ -8,9 +8,9 @@ Class {
 		'builder',
 		'dict'
 	],
-	#category : 'Laberinto26-builder',
+	#category : 'Laberinto26-Builder',
 	#package : 'Laberinto26',
-	#tag : 'builder'
+	#tag : 'Builder'
 }
 
 { #category : 'accessing' }
@@ -78,7 +78,9 @@ Director >> fabricarLaberintoRecursivo:unDic en:padre [
 { #category : 'as yet unclassified' }
 Director >> iniBuilder [
 	"aquí podemos cambiar el Builder para crear laberintos diferentes"
-	(self dict at:'forma') = 'poligono4' ifTrue:[ self builder:LaberintoBuilder new].
+	(self dict at:'forma') = 'poligono4' ifTrue:[ self builder:LaberintoBuilder new]. "contendores cuadrado"
+	(self dict at:'forma') = 'rombo' ifTrue:[ self builder:LaberintoBuilderRombo new]. "contenedores rombo"
+
 ]
 
 { #category : 'as yet unclassified' }
