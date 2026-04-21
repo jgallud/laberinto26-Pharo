@@ -9,8 +9,7 @@ Class {
 		'juego'
 	],
 	#category : 'Laberinto26-Builder',
-	#package : 'Laberinto26',
-	#tag : 'Builder'
+	#package : 'Laberinto26-Builder'
 }
 
 { #category : 'accessing' }
@@ -108,7 +107,8 @@ LaberintoBuilder >> fabricarHabitacion:unNum [
 { #category : 'factory method' }
 LaberintoBuilder >> fabricarJuego [
 	self juego:Juego new.
-	self juego laberinto:self laberinto.
+	self juego prototipo:self laberinto.
+	self juego laberinto:self juego clonar.
 ]
 
 { #category : 'factory method' }
@@ -161,6 +161,8 @@ LaberintoBuilder >> fabricarPuertaLado1:num1 or1:unaOr Lado2:num2 or2:otraOr [
 	objOr1:=self perform:('fabricar',unaOr) asSymbol. "fabricar+Norte => fabricarNorte"
 	objOr2:=self perform:('fabricar',otraOr) asSymbol.
 	
+	pt agregarComando:(Abrir new receptor:pt).
+	
 	lado1 ponerEn:objOr1 elemento:pt.
 	lado2 ponerEn:objOr2 elemento:pt.
 ]
@@ -178,6 +180,14 @@ LaberintoBuilder >> fabricarSureste [
 { #category : 'factory method' }
 LaberintoBuilder >> fabricarSuroeste [
 	^Suroeste default
+]
+
+{ #category : 'factory method' }
+LaberintoBuilder >> fabricarTunelEn:unCont [
+
+	|tn|
+	tn:=Tunel new.
+	unCont agregarHijo:tn.
 ]
 
 { #category : 'accessing' }

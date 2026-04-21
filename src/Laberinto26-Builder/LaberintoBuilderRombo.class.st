@@ -5,8 +5,7 @@ Class {
 	#name : 'LaberintoBuilderRombo',
 	#superclass : 'LaberintoBuilder',
 	#category : 'Laberinto26-Builder',
-	#package : 'Laberinto26',
-	#tag : 'Builder'
+	#package : 'Laberinto26-Builder'
 }
 
 { #category : 'accessing' }

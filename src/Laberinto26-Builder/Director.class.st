@@ -9,8 +9,7 @@ Class {
 		'dict'
 	],
 	#category : 'Laberinto26-Builder',
-	#package : 'Laberinto26',
-	#tag : 'Builder'
+	#package : 'Laberinto26-Builder'
 }
 
 { #category : 'accessing' }
@@ -70,6 +69,7 @@ Director >> fabricarLaberintoRecursivo:unDic en:padre [
 
 "hojas: hay que indicar el contenedor donde va la hoja"
 (unDic at:'tipo')='bomba' ifTrue:[con:=self builder fabricarBombaEn:padre].
+(unDic at:'tipo')='tunel' ifTrue:[con:=self builder fabricarTunelEn:padre].
 
 (unDic at:'hijos' ifAbsent:[^nil]) do:[:each | self fabricarLaberintoRecursivo:each en:con].
 
