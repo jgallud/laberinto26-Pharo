@@ -14,7 +14,7 @@ LaberintoBuilderRombo >> asignarOrientaciones:unaForma [
 	unaForma orientaciones add:(self fabricarNoreste); add:(self fabricarNoroeste); add:(self fabricarSureste); add:(self fabricarSuroeste)
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'misc' }
 LaberintoBuilderRombo >> fabricarForma [
 
 	|forma|

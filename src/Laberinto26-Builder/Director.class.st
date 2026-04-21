@@ -36,13 +36,13 @@ Director >> dict: anObject [
 	dict := anObject
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'misc' }
 Director >> fabricarBichos [
 	(self dict at:'bichos' ifAbsent:[^nil]) do:[:each |
 		self builder fabricarBichoModo:(each at:'modo') posicion:(each at:'posicion')]. "fabricarBichoModoPosicion(strModo,unNum)"
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'misc' }
 Director >> fabricarJuego [
 	self builder fabricarJuego.
 ]
@@ -59,7 +59,7 @@ Director >> fabricarLaberinto [
 
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'misc' }
 Director >> fabricarLaberintoRecursivo:unDic en:padre [
 | con |
 
@@ -75,7 +75,7 @@ Director >> fabricarLaberintoRecursivo:unDic en:padre [
 
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'misc' }
 Director >> iniBuilder [
 	"aquí podemos cambiar el Builder para crear laberintos diferentes"
 	(self dict at:'forma') = 'poligono4' ifTrue:[ self builder:LaberintoBuilder new]. "contendores cuadrado"
@@ -83,7 +83,7 @@ Director >> iniBuilder [
 
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'misc' }
 Director >> leerArchivo:unArchivo [
 	| jsonString |
 	jsonString := unArchivo asFileReference contents.
@@ -96,7 +96,7 @@ Director >> obtenerJuego [
  ^self builder juego.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'misc' }
 Director >> procesar:unArchivo [
 
 	self leerArchivo:unArchivo.

@@ -79,7 +79,7 @@ LaberintoBuilder >> fabricarEste [
 	^Este default
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'misc' }
 LaberintoBuilder >> fabricarForma [
 
 	|forma|

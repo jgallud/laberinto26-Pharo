@@ -29,7 +29,7 @@ LaberintoBuilderTest >> comprobarBombaEn:unContenedor [
 	self comprobarFuncionamientoBomba:bmb
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'misc' }
 LaberintoBuilderTest >> comprobarFuncionamientoBomba:unaBomba [
 ]
 
@@ -83,7 +83,7 @@ LaberintoBuilderTest >> comprobarLaberintoRecursivo: unDic en: padre [
 	nada ifTrue: [ self assert: false ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'misc' }
 LaberintoBuilderTest >> comprobarPuertaDe:unNum orientacion:unaOr a:otroNum orientacion:otraOr [	
 	| unaHab otraHab pt1 pt2 or1 or2|
 	
